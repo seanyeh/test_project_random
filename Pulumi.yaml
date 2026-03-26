@@ -1,7 +1,13 @@
 name: syeh-brave-cadmium-manatee
-runtime: nodejs
+runtime: yaml
 description: A minimal TypeScript Pulumi program
-config:
-  pulumi:tags:
-    value:
-      pulumi:template: typescript
+
+resources:
+  randomInt:
+    type: random:RandomInteger
+    properties:
+      min: 1
+      max: 100
+
+outputs:
+  result: ${randomInt.result}
